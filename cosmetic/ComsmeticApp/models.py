@@ -43,11 +43,11 @@ class user(models.Model):
         return self.username
     
 class userProfile(models.Model):
-    username = models.OneToOneField(user, on_delete=models.CASCADE)
+    user = models.OneToOneField(user, on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
 
     def __str__(self):
-        return f"{self.username.username}'s Profile - {self.profile_picture.url if self.profile_picture else 'No Picture'}"    
+        return f"{self.user.username}'s Profile - {self.profile_picture.url if self.profile_picture else 'No Picture'}"    
     
 
 
