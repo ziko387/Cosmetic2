@@ -39,16 +39,15 @@ class user(models.Model):
     phonenumber = models.CharField(max_length=15, blank=True, null=True)
 
 
+    def __str__(self):
+        return self.username
+    
 class userProfile(models.Model):
-    user = models.OneToOneField(user, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=50, blank=True, null=True)
-    last_name = models.CharField(max_length=50, blank=True, null=True)
-    address = models.CharField(max_length=255, blank=True, null=True)
+    username = models.OneToOneField(user, on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
 
     def __str__(self):
-        return f"{self.user.username}'s Profile -{self.profile_picture.url if self.profile_picture else 'No Picture'}"
-     
+        return f"{self.username.username}'s Profile - {self.profile_picture.url if self.profile_picture else 'No Picture'}"    
     
 
 

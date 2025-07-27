@@ -52,11 +52,8 @@ class Migration(migrations.Migration):
             name='userProfile',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('first_name', models.CharField(blank=True, max_length=50, null=True)),
-                ('last_name', models.CharField(blank=True, max_length=50, null=True)),
-                ('address', models.CharField(blank=True, max_length=255, null=True)),
                 ('profile_picture', models.ImageField(blank=True, null=True, upload_to='profile_pictures/')),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='ComsmeticApp.user')),
+                ('username', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='ComsmeticApp.user')),
             ],
         ),
     ]
